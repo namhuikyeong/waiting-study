@@ -5,9 +5,7 @@ import Link from "next/link";
 export default function LandingPage() {
   return (
     <div className="mx-auto flex min-h-screen max-w-lg flex-col justify-center px-6 py-16">
-      <p className="text-xs font-medium uppercase tracking-wide text-gold-500">
-        Seoul Airlines · 首爾航空
-      </p>
+    
 
       <h1 className="mt-3 font-display text-[28px] font-medium leading-snug text-navy-900">
         온라인 항공권 예매 서비스
