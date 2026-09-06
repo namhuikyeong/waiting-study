@@ -1,6 +1,46 @@
 import type { CountryCode } from "./config";
 
-export const dict = {
+export interface Dict {
+  heroTitle: string;
+  heroBody: string;
+  start: string;
+  estTime: string;
+  countryTitle: string;
+  countryBody: string;
+  countryKR: string;
+  countryTW: string;
+  eligibilityTitle: string;
+  eligibilityBody: string;
+  goToSurvey: string;
+  surveyDone: string;
+  assigning: string;
+  yourCode: string;
+  codeInstruction: string;
+  copyCode: string;
+  copied: string;
+  origin: string;
+  destination: string;
+  date: string;
+  passengers: string;
+  passengersUnit: string;
+  timePref: string;
+  morning: string;
+  afternoon: string;
+  seatPref: string;
+  window: string;
+  aisle: string;
+  task1Heading: string;
+  task2Heading: string;
+  testIntroBody: string;
+  goToTest: string;
+  testDone: string;
+  postSurveyTitle: string;
+  postSurveyBody: string;
+  finishTitle: string;
+  finishBody: string;
+}
+
+export const dict: Record<CountryCode, Dict> = {
   KR: {
     heroTitle: "온라인 대기 화면 사용자 경험 연구",
     heroBody:
@@ -88,9 +128,7 @@ export const dict = {
     finishTitle: "感謝您的參與",
     finishBody: "所有任務與問卷皆已完成，您可以關閉此視窗。誠摯感謝您撥冗參與本研究。",
   },
-} as const;
-
-export type Dict = typeof dict.KR;
+};
 
 export function t(country: CountryCode): Dict {
   return dict[country];
