@@ -32,8 +32,10 @@ export interface Dict {
   testIntroBody: string;
   goToTest: string;
   testDone: string;
+  confirmTestDone: string;
   postSurveyTitle: string;
   postSurveyBody: string;
+  confirmSurveyDone: string;
   finishTitle: string;
   finishBody: string;
 }
@@ -73,9 +75,11 @@ export const dict: Record<CountryCode, Dict> = {
       "아래 조건에 맞춰 항공권 예매 과제를 진행해 주세요. 과제를 마치면 이 페이지로 돌아와 계속하기를 눌러주세요.",
     goToTest: "테스트 시작하기 (새 창)",
     testDone: "테스트를 완료했습니다 — 계속하기",
+    confirmTestDone: "정말 예매 과제를 완료하셨나요? 아직 안 하셨다면 취소를 눌러 돌아가주세요.",
     postSurveyTitle: "짧은 설문에 답해주세요",
     postSurveyBody:
       "방금 진행한 과제에 대한 설문입니다. 아래 버튼을 눌러 설문을 진행한 뒤, 이 페이지로 돌아와 계속하기를 눌러주세요.",
+    confirmSurveyDone: "정말 설문을 완료하셨나요? 아직 안 하셨다면 취소를 눌러 돌아가주세요.",
     finishTitle: "참여해 주셔서 감사합니다",
     finishBody:
       "모든 과제와 설문이 완료되었습니다. 창을 닫으셔도 좋습니다. 소중한 시간을 내어 참여해 주셔서 진심으로 감사드립니다.",
@@ -114,9 +118,11 @@ export const dict: Record<CountryCode, Dict> = {
       "請依照以下條件完成機票預訂任務。完成後請返回本頁面並點選繼續。",
     goToTest: "開始測試（開新視窗）",
     testDone: "我已完成測試 — 繼續",
+    confirmTestDone: "您確定已完成預訂任務了嗎？若尚未完成，請點選取消返回。",
     postSurveyTitle: "請填寫簡短問卷",
     postSurveyBody:
       "以下問卷關於您剛剛完成的任務。請點擊下方按鈕前往問卷，完成後返回本頁面並點選繼續。",
+    confirmSurveyDone: "您確定已完成問卷了嗎？若尚未完成，請點選取消返回。",
     finishTitle: "感謝您的參與",
     finishBody: "所有任務與問卷皆已完成，您可以關閉此視窗。誠摯感謝您撥冗參與本研究。",
   },
@@ -125,3 +131,13 @@ export const dict: Record<CountryCode, Dict> = {
 export function t(country: CountryCode): Dict {
   return dict[country];
 }
+
+/**
+ * Neutral (non-experiment-revealing) step labels for the top progress bar.
+ * Index matches the flow: 0 = eligibility, 1 = task1, 2 = post1 survey,
+ * 3 = task2, 4 = post2 survey.
+ */
+export const STEP_LABELS: Record<CountryCode, string[]> = {
+  KR: ["사전 설문", "예매 1", "설문", "예매 2", "설문"],
+  TW: ["問卷", "預訂 1", "問卷", "預訂 2", "問卷"],
+};

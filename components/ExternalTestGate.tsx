@@ -61,7 +61,9 @@ export default function ExternalTestGate({
       </a>
 
       <button
-        onClick={onContinue}
+        onClick={() => {
+          if (window.confirm(d.confirmTestDone)) onContinue();
+        }}
         className="focus-ring mt-3 rounded-card border border-navy-900/20 py-3 text-sm font-medium text-navy-900 transition hover:bg-mist"
       >
         {d.testDone}

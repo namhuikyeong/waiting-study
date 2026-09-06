@@ -6,6 +6,7 @@ import { useStudy } from "@/lib/StudyContext";
 import { EXTERNAL_SURVEYS, GOOGLE_FORM_ENTRY, assignSequence } from "@/lib/config";
 import { t } from "@/lib/i18n";
 import ExternalSurveyGate from "@/components/ExternalSurveyGate";
+import StepProgress from "@/components/StepProgress";
 
 export default function EligibilityPage() {
   const router = useRouter();
@@ -37,14 +38,17 @@ export default function EligibilityPage() {
   }
 
   return (
-    <ExternalSurveyGate
-      country={country}
-      title={d.eligibilityTitle}
-      body={d.eligibilityBody}
-      surveyUrl={EXTERNAL_SURVEYS.eligibility[country]}
-      participantId={participantId}
-      entryId={GOOGLE_FORM_ENTRY.eligibility[country]}
-      onContinue={handleContinue}
-    />
+    <>
+      <StepProgress country={country} current={0} />
+      <ExternalSurveyGate
+        country={country}
+        title={d.eligibilityTitle}
+        body={d.eligibilityBody}
+        surveyUrl={EXTERNAL_SURVEYS.eligibility[country]}
+        participantId={participantId}
+        entryId={GOOGLE_FORM_ENTRY.eligibility[country]}
+        onContinue={handleContinue}
+      />
+    </>
   );
 }

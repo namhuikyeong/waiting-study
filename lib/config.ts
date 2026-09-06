@@ -72,7 +72,7 @@ export const FIGMA_PROTOTYPES: Record<
 export const TASK_1 = {
   originByCountryLocal: { KR: "서울 (ICN)", TW: "台北 (TPE)" } as Record<CountryCode, string>,
   destinationLocal: { KR: "도쿄 (NRT)", TW: "東京 (NRT)" } as Record<CountryCode, string>,
-  dateLocal: { KR: "2026년 9월 15일", TW: "2026年9月15日" } as Record<CountryCode, string>,
+  dateLocal: { KR: "2026년 9월 14일", TW: "2026年9月14日" } as Record<CountryCode, string>,
   passengers: 1,
   timePreference: "morning" as const,
   seatPreference: "window" as const,

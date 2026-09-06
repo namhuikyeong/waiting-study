@@ -7,6 +7,7 @@ import { EXTERNAL_SURVEYS, FIGMA_PROTOTYPES, GOOGLE_FORM_ENTRY, GOOGLE_FORM_SEQ_
 import { t } from "@/lib/i18n";
 import ExternalTestGate from "@/components/ExternalTestGate";
 import ExternalSurveyGate from "@/components/ExternalSurveyGate";
+import StepProgress from "@/components/StepProgress";
 
 type Phase = "task1" | "post1" | "task2" | "post2" | "finish";
 const PHASE_STORAGE_KEY = "waiting-study-phase";
@@ -49,68 +50,80 @@ export default function BookingPage() {
   switch (phase) {
     case "task1":
       return (
-        <ExternalTestGate
-          country={country}
-          heading={d.task1Heading}
-          figmaUrl={proto.task1}
-          condition={{
-            origin: TASK_1.originByCountryLocal[country],
-            destination: TASK_1.destinationLocal[country],
-            date: TASK_1.dateLocal[country],
-            passengers: TASK_1.passengers,
-            timePref: TASK_1.timePreference,
-            seatPref: TASK_1.seatPreference,
-          }}
-          onContinue={() => setPhase("post1")}
-        />
+        <>
+          <StepProgress country={country} current={1} />
+          <ExternalTestGate
+            country={country}
+            heading={d.task1Heading}
+            figmaUrl={proto.task1}
+            condition={{
+              origin: TASK_1.originByCountryLocal[country],
+              destination: TASK_1.destinationLocal[country],
+              date: TASK_1.dateLocal[country],
+              passengers: TASK_1.passengers,
+              timePref: TASK_1.timePreference,
+              seatPref: TASK_1.seatPreference,
+            }}
+            onContinue={() => setPhase("post1")}
+          />
+        </>
       );
 
     case "post1":
       return (
-        <ExternalSurveyGate
-          country={country}
-          title={d.postSurveyTitle}
-          body={d.postSurveyBody}
-          surveyUrl={EXTERNAL_SURVEYS.post1[country]}
-          participantId={participantId}
-          entryId={GOOGLE_FORM_ENTRY.post1[country]}
-          sequence={sequence}
-          seqEntryId={GOOGLE_FORM_SEQ_ENTRY.post1[country]}
-          onContinue={() => setPhase("task2")}
-        />
+        <>
+          <StepProgress country={country} current={2} />
+          <ExternalSurveyGate
+            country={country}
+            title={d.postSurveyTitle}
+            body={d.postSurveyBody}
+            surveyUrl={EXTERNAL_SURVEYS.post1[country]}
+            participantId={participantId}
+            entryId={GOOGLE_FORM_ENTRY.post1[country]}
+            sequence={sequence}
+            seqEntryId={GOOGLE_FORM_SEQ_ENTRY.post1[country]}
+            onContinue={() => setPhase("task2")}
+          />
+        </>
       );
 
     case "task2":
       return (
-        <ExternalTestGate
-          country={country}
-          heading={d.task2Heading}
-          figmaUrl={proto.task2}
-          condition={{
-            origin: TASK_2.originLocal[country],
-            destination: TASK_2.destinationByCountryLocal[country],
-            date: TASK_2.dateLocal[country],
-            passengers: TASK_2.passengers,
-            timePref: TASK_2.timePreference,
-            seatPref: TASK_2.seatPreference,
-          }}
-          onContinue={() => setPhase("post2")}
-        />
+        <>
+          <StepProgress country={country} current={3} />
+          <ExternalTestGate
+            country={country}
+            heading={d.task2Heading}
+            figmaUrl={proto.task2}
+            condition={{
+              origin: TASK_2.originLocal[country],
+              destination: TASK_2.destinationByCountryLocal[country],
+              date: TASK_2.dateLocal[country],
+              passengers: TASK_2.passengers,
+              timePref: TASK_2.timePreference,
+              seatPref: TASK_2.seatPreference,
+            }}
+            onContinue={() => setPhase("post2")}
+          />
+        </>
       );
 
     case "post2":
       return (
-        <ExternalSurveyGate
-          country={country}
-          title={d.postSurveyTitle}
-          body={d.postSurveyBody}
-          surveyUrl={EXTERNAL_SURVEYS.post2[country]}
-          participantId={participantId}
-          entryId={GOOGLE_FORM_ENTRY.post2[country]}
-          sequence={sequence}
-          seqEntryId={GOOGLE_FORM_SEQ_ENTRY.post2[country]}
-          onContinue={() => setPhase("finish")}
-        />
+        <>
+          <StepProgress country={country} current={4} />
+          <ExternalSurveyGate
+            country={country}
+            title={d.postSurveyTitle}
+            body={d.postSurveyBody}
+            surveyUrl={EXTERNAL_SURVEYS.post2[country]}
+            participantId={participantId}
+            entryId={GOOGLE_FORM_ENTRY.post2[country]}
+            sequence={sequence}
+            seqEntryId={GOOGLE_FORM_SEQ_ENTRY.post2[country]}
+            onContinue={() => setPhase("finish")}
+          />
+        </>
       );
 
     case "finish":
