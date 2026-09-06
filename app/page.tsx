@@ -10,18 +10,21 @@ export default function LandingPage() {
       </p>
 
       <h1 className="mt-3 font-display text-[28px] font-medium leading-snug text-navy-900">
-        온라인 대기 화면 사용자 경험 연구
+        온라인 항공권 예매 서비스
         <br />
-        <span className="text-navy-900/60 text-2xl">線上等待畫面使用者體驗研究</span>
+        이용 경험 조사
+        <br />
+        <span className="text-navy-900/60 text-2xl">線上機票預訂服務使用經驗調查</span>
       </h1>
 
       <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-navy-900/70">
         <p>
-          이 웹사이트는 온라인 항공권 예매 과정에서 나타나는 대기 화면이 사용자 경험에 미치는
-          영향을 알아보는 연구용 프로토타입입니다. 실제 결제는 이루어지지 않습니다.
+          이 웹사이트는 국립정치대학교(NCCU) 석사학위논문의 일환으로 진행되는 연구 참여
+          안내 페이지입니다. 현재 개발 중인 온라인 항공권 예매 서비스에 대한 사용자 여러분의
+          실제 이용 경험과 의견을 수집하고자 합니다. 실제 결제는 이루어지지 않습니다.
         </p>
         <p className="border-t border-navy-900/10 pt-4">
-          本網站是一個研究用原型，用於探討線上機票預訂過程中的等待畫面如何影響使用者體驗。本網站不會產生實際付款行為。
+          本網站為國立政治大學（NCCU）碩士學位論文之研究參與導覽頁面，旨在蒐集使用者對目前正在開發中的線上機票預訂服務之實際使用經驗與意見。本網站不會產生實際付款行為。
         </p>
       </div>
 
