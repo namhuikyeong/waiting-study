@@ -5,7 +5,6 @@ import Link from "next/link";
 export default function LandingPage() {
   return (
     <div className="mx-auto flex min-h-screen max-w-lg flex-col justify-center px-6 py-16">
-
       <h1 className="font-display text-[28px] font-medium leading-snug text-navy-900">
         온라인 항공권 예매 서비스
         <br />
@@ -20,8 +19,16 @@ export default function LandingPage() {
           안내 페이지입니다. 현재 개발 중인 온라인 항공권 예매 서비스에 대한 사용자 여러분의
           실제 이용 경험과 의견을 수집하고자 합니다. 실제 결제는 이루어지지 않습니다.
         </p>
+        <p>
+          본 조사는 짧은 예매 과제와 간단한 설문을 번갈아 진행하는 방식으로 구성되어 있으며,
+          중간에 이탈하실 경우 응답을 분석에 활용하기 어려울 수 있습니다. 끝까지 참여해
+          주시면 감사하겠습니다.
+        </p>
         <p className="border-t border-navy-900/10 pt-4">
           本網站為國立政治大學（NCCU）碩士學位論文之研究參與導覽頁面，旨在蒐集使用者對目前正在開發中的線上機票預訂服務之實際使用經驗與意見。本網站不會產生實際付款行為。
+        </p>
+        <p>
+          本次調查將以簡短的預訂任務與簡短問卷交替進行的方式進行，若中途退出，您的回答將難以納入分析。誠摯感謝您完整參與本次調查。
         </p>
       </div>
 
