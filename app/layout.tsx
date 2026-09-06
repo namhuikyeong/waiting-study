@@ -10,8 +10,8 @@ import { StudyProvider } from "@/lib/StudyContext";
 // render both languages correctly out of the box.
 
 export const metadata: Metadata = {
-  title: "온라인 대기 화면 연구 · 線上等待畫面研究",
-  description: "Culturally-adaptive waiting screen UX study prototype",
+  title: "온라인 항공권 예매 서비스 이용 경험 조사 · 線上機票預訂服務使用經驗調查",
+  description: "Online flight-booking service user experience survey",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
